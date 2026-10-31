@@ -7,7 +7,7 @@ class Solution {
         int[][] rightFlow = new int[m][n];
         int[][] downFlow = new int[m][n];
 
-        // Starting position
+       
         rightFlow[0][0] = 1;
         downFlow[0][0] = 1;
 
@@ -30,14 +30,13 @@ class Solution {
                 }
 
                 if (grid[i][j] == 1) {
-                    // Mirror: right becomes down
-                    //         down becomes right
+                   
 
                     downFlow[i][j] = (int)(fromLeft % MOD);
                     rightFlow[i][j] = (int)(fromTop % MOD);
 
                 } else {
-                    // Empty cell: move right or down
+                  
 
                     long total = (fromLeft + fromTop) % MOD;
 
@@ -47,7 +46,7 @@ class Solution {
             }
         }
 
-        // Count paths reaching destination
+     
         long ans = 0;
 
         if (n > 1) {
